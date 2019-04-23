@@ -14,5 +14,5 @@ const get_landing = (req, res) => {
 
 module.exports = app => {
   app.get("/api/ping", get_ping);
-  app.get("/api/home", get_landing);
+  app.get("/", get_landing);
 };
