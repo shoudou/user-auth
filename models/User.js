@@ -111,14 +111,24 @@ UserSchema.methods.toFullProfile = function() {
     "isAdmin",
     "isVerified",
     "isBlocked",
-    "isClosed"
+    "isClosed",
+    "forcePwdReset"
   ]);
 };
 
 UserSchema.methods.toAuthProfile = function() {
   const userObject = this.toObject();
 
-  return pick(userObject, ["firstname", "lastname"]);
+  return pick(userObject, [
+    "_id",
+    "email",
+    "firstname",
+    "lastname",
+    "isVerified",
+    "isBlocked",
+    "isClosed",
+    "forcePwdReset"
+  ]);
 };
 
 UserSchema.methods.setToAdmin = function() {
